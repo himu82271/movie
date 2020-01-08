@@ -2,25 +2,22 @@
     <div class="flex-center position-ref full-height">
         <div class="content">
             <div  class="m-b-md">
-                <h2 class="title m-b-md">
-                    Musa
-                </h2>
-                <h3>
-                    Your efficent task planner
-                </h3>
+                <example/>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    export default {}
+    import example from '../js/components/ExampleComponent'
+    export default {
+        components:{
+            example
+        }
+    }
 </script>
 
 <style scoped>
-    .full-height {
-        height: 100vh;
-    }
     .flex-center {
         align-items: center;
         display: flex;
