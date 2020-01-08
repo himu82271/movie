@@ -1,23 +1,23 @@
- <template>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div  class="m-b-md">
-                    <h2 class="title m-b-md">
-                        Treclon
-                    </h2>
-                    <h3>
-                        Your efficent task planner
-                    </h3>
-                </div>
+<template>
+    <div class="flex-center position-ref full-height">
+        <div class="content">
+            <div  class="m-b-md">
+                <h2 class="title m-b-md">
+                    Musa
+                </h2>
+                <h3>
+                    Your efficent task planner
+                </h3>
             </div>
         </div>
-    </template>
+    </div>
+</template>
 
-    <script>
+<script>
     export default {}
-    </script>
+</script>
 
-    <style scoped>
+<style scoped>
     .full-height {
         height: 100vh;
     }
@@ -53,4 +53,4 @@
         margin-bottom: 30px;
         color: #000000;
     }
-    </style>
+</style>
