@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-import App from '../views/App'
+import App from '.../src/App'
 import Welcome from '../views/Welcome'
 
 
