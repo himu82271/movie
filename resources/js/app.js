@@ -5,8 +5,11 @@ import Vuetify from 'vuetify'
 Vue.use(Vuetify)
 Vue.use(VueRouter)
 
-import App from '../views/App'
-import Welcome from '../views/Welcome'
+import App          from '../views/App'
+import Dashboard    from '../views/UserProfile'
+import Login        from '../views/Login'
+import Register     from '../views/Register'
+import Home         from '../views/Welcome'
 
 
 
@@ -16,7 +19,22 @@ const router = new VueRouter({
         {
             path: '/',
             name: 'home',
-            component: Welcome
+            component: Home
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: Login,
+        },
+        {
+            path: '/register',
+            name: 'register',
+            component: Register,
+        },
+        {
+            path: '/board',
+            name: 'board',
+            component: Dashboard,
         },
     ],
 });
