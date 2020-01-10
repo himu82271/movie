@@ -1,11 +1,11 @@
 <template>
-    <div class="flex-center position-ref full-height">
-        <div class="content">
-            <div  class="m-b-md">
-                <example/>
-            </div>
-        </div>
-    </div>
+        <v-container>
+            <v-row>
+                <v-col v-for="item in list" :key="item.id">
+                    <example :item="item"/>
+                </v-col>
+            </v-row>
+        </v-container>
 </template>
 
 <script>
@@ -13,41 +13,35 @@
     export default {
         components:{
             example
+        },
+        data:()=>({
+            show: false,
+            list:[],
+            tempList:[]
+        }),
+        created() {
+            let vm = this;
+            fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=e7fd9e644511491efdade2c455621de8&language=en-US&page=1')
+            .then(response => response.json())
+            .then(data =>{
+                vm.tempList= data.results;
+                vm.tempList.forEach(function(element){
+                    var obj = {
+                        title:element.title,
+                        rating:element.vote_average,
+                        imageUrl:element.poster_path,
+                    };
+                    // if(obj.rating < 8.5)
+                    // {
+                    //     vm.list.push(obj)
+                    // }
+                    vm.list.push(obj)
+                });
+                console.log(vm.list);
+            })
         }
     }
 </script>
 
 <style scoped>
-    .flex-center {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-    }
-    .position-ref {
-        position: relative;
-    }
-    .top-right {
-        position: absolute;
-        right: 10px;
-        top: 18px;
-    }
-    .content {
-        text-align: center;
-    }
-    .title {
-        font-size: 60px;
-    }
-    .links > a {
-        color: #636b6f;
-        padding: 0 25px;
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: .1rem;
-        text-decoration: none;
-        text-transform: uppercase;
-    }
-    .m-b-md {
-        margin-bottom: 30px;
-        color: #000000;
-    }
 </style>
