@@ -55,9 +55,54 @@
 </template>
 
 <script>
-export default {
+    export default {
+        data(){
+            return {
+                name : "",
+                email : "",
+                password : "",
+                password_confirmation : ""
+            }
+        },
+        methods : {
+            handleSubmit(e) {
+                e.preventDefault()
 
-}
+                if (this.password === this.password_confirmation && this.password.length > 0)
+                {
+                    axios.post('api/register', {
+                        name: this.name,
+                        email: this.email,
+                        password: this.password,
+                        c_password : this.password_confirmation
+                        })
+                        .then(response => {
+                        localStorage.setItem('user',response.data.success.name)
+                        localStorage.setItem('jwt',response.data.success.token)
+
+                        if (localStorage.getItem('jwt') != null){
+                            this.$router.go('/board')
+                        }
+                        })
+                        .catch(error => {
+                        console.error(error);
+                        });
+                } else {
+                    this.password = ""
+                    this.passwordConfirm = ""
+
+                    return alert('Passwords do not match')
+                }
+            }
+        },
+        beforeRouteEnter (to, from, next) { 
+            if (localStorage.getItem('jwt')) {
+                return next('board');
+            }
+
+            next();
+        }
+    }
 </script>
 
 <style>

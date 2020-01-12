@@ -29,7 +29,14 @@
 
 <script>
 export default {
-
+    data:() =>({
+        isLoggedIn : null,
+        name : null
+    }),
+    mounted(){
+        this.isLoggedIn = localStorage.getItem('jwt')
+        this.name = localStorage.getItem('user')
+    }
 }
 </script>
 

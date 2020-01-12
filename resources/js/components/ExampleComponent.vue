@@ -27,6 +27,18 @@
                     >
                         Explore
                     </v-btn>
+                     <v-btn
+                        color="purple"
+                        text
+                    >
+                        <v-icon>mdi-certificate</v-icon>
+                    </v-btn>
+                     <v-btn
+                        color="purple"
+                        text
+                    >
+                        <v-icon>mdi-file-word-box</v-icon>
+                    </v-btn>
 
                     <v-spacer></v-spacer>
 
