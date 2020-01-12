@@ -36,8 +36,8 @@ const router = new VueRouter({
             component: Register,
         },
         {
-            path: '/board',
-            name: 'board',
+            path: '/dashboard',
+            name: 'dashboard',
             component: Dashboard,
         },
     ],
@@ -46,6 +46,15 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app',
     components: { App },
-    vuetify: new Vuetify({}),
+    vuetify: new Vuetify({
+        theme: {
+    	    themes: {
+    		light: {
+    		    primary: '#1d2671',
+    		    secondary: '#E1341E'
+    		}
+    	    }
+    	},
+    }),
     router,
 });

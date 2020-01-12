@@ -16,12 +16,12 @@
                         <router-link :to="{ name: 'login' }" class="nav-link" v-if="!isLoggedIn">Login</router-link>
                         <router-link :to="{ name: 'register' }" class="nav-link" v-if="!isLoggedIn">Register</router-link>
                         <li class="nav-link" v-if="isLoggedIn"> Hi, {{name}}</li>
-                        <router-link :to="{ name: 'board' }" class="nav-link" v-if="isLoggedIn">Profile</router-link>
+                        <router-link :to="{ name: 'dashboard' }" class="nav-link" v-if="isLoggedIn">Profile</router-link>
                     </ul>
                 </div>
             </div>
         </nav>
-        <main class="py-4">
+        <main>
             <router-view></router-view>
         </main>
     </div>

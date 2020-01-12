@@ -60,7 +60,7 @@
                         localStorage.setItem('jwt',response.data.success.token)
 
                         if (localStorage.getItem('jwt') != null){
-                            this.$router.go('/board')
+                            this.$router.go('/dashboard')
                         }
                         })
                         .catch(function (error) {
@@ -71,7 +71,7 @@
         },
         beforeRouteEnter (to, from, next) { 
             if (localStorage.getItem('jwt')) {
-                return next('board');
+                return next('dashboard');
             }
 
             next();

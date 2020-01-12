@@ -245,10 +245,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      show: false
+      show: false,
+      rating: 4.3
     };
   },
   props: {
@@ -382,7 +400,7 @@ __webpack_require__.r(__webpack_exports__);
           localStorage.setItem('jwt', response.data.success.token);
 
           if (localStorage.getItem('jwt') != null) {
-            _this.$router.go('/board');
+            _this.$router.go('/dashboard');
           }
         })["catch"](function (error) {
           console.error(error);
@@ -392,7 +410,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   beforeRouteEnter: function beforeRouteEnter(to, from, next) {
     if (localStorage.getItem('jwt')) {
-      return next('board');
+      return next('dashboard');
     }
 
     next();
@@ -492,7 +510,7 @@ __webpack_require__.r(__webpack_exports__);
           localStorage.setItem('jwt', response.data.success.token);
 
           if (localStorage.getItem('jwt') != null) {
-            _this.$router.go('/board');
+            _this.$router.go('/dashboard');
           }
         })["catch"](function (error) {
           console.error(error);
@@ -506,7 +524,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   beforeRouteEnter: function beforeRouteEnter(to, from, next) {
     if (localStorage.getItem('jwt')) {
-      return next('board');
+      return next('dashboard');
     }
 
     next();
@@ -1879,14 +1897,26 @@ var render = function() {
               _c(
                 "v-btn",
                 { attrs: { color: "purple", text: "" } },
-                [_c("v-icon", [_vm._v("mdi-certificate")])],
+                [
+                  _c("v-icon", [
+                    _vm._v(
+                      "\n                    mdi-certificate\n                "
+                    )
+                  ])
+                ],
                 1
               ),
               _vm._v(" "),
               _c(
                 "v-btn",
                 { attrs: { color: "purple", text: "" } },
-                [_c("v-icon", [_vm._v("mdi-file-word-box")])],
+                [
+                  _c("v-icon", [
+                    _vm._v(
+                      "\n                    mdi-file-word-box\n                "
+                    )
+                  ])
+                ],
                 1
               ),
               _vm._v(" "),
@@ -1933,13 +1963,68 @@ var render = function() {
                 _vm._v(" "),
                 _c("v-card-text", [
                   _vm._v(
-                    "\n            I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.\n            "
+                    "\n                    I'm a thing. But, like most politicians, he promised more than he could deliver. \n                    You won't have time for sleeping, soldier, not with all the bed making you'll be doing. \n                    Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! \n                    You're going to do his laundry? I've got to find a way to escape.\n                "
                   )
                 ])
               ],
               1
             )
           ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-card",
+        { staticClass: "mx-auto", attrs: { "max-width": "344" } },
+        [
+          _c("v-textarea", {
+            attrs: {
+              "background-color": "amber lighten-4",
+              color: "orange orange-darken-4",
+              label: "Label"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "v-card-actions",
+            { staticClass: "pa-4" },
+            [
+              _vm._v("\n            Rate this album\n            "),
+              _c("v-spacer"),
+              _vm._v(" "),
+              _c(
+                "span",
+                { staticClass: "grey--text text--lighten-2 caption mr-2" },
+                [
+                  _vm._v(
+                    "\n                (" +
+                      _vm._s(_vm.rating) +
+                      ")\n            "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("v-rating", {
+                attrs: {
+                  "background-color": "white",
+                  color: "yellow accent-4",
+                  dense: "",
+                  "half-increments": "",
+                  hover: "",
+                  size: "18"
+                },
+                model: {
+                  value: _vm.rating,
+                  callback: function($$v) {
+                    _vm.rating = $$v
+                  },
+                  expression: "rating"
+                }
+              })
+            ],
+            1
+          )
         ],
         1
       )
@@ -2032,7 +2117,7 @@ var render = function() {
                           "router-link",
                           {
                             staticClass: "nav-link",
-                            attrs: { to: { name: "board" } }
+                            attrs: { to: { name: "dashboard" } }
                           },
                           [_vm._v("Profile")]
                         )
@@ -2048,7 +2133,7 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _c("main", { staticClass: "py-4" }, [_c("router-view")], 1)
+    _c("main", [_c("router-view")], 1)
   ])
 }
 var staticRenderFns = [
@@ -58660,8 +58745,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'register',
     component: _views_Register__WEBPACK_IMPORTED_MODULE_9__["default"]
   }, {
-    path: '/board',
-    name: 'board',
+    path: '/dashboard',
+    name: 'dashboard',
     component: _views_UserProfile__WEBPACK_IMPORTED_MODULE_7__["default"]
   }]
 });
@@ -58670,7 +58755,16 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   components: {
     App: _views_App__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
-  vuetify: new vuetify__WEBPACK_IMPORTED_MODULE_2___default.a({}),
+  vuetify: new vuetify__WEBPACK_IMPORTED_MODULE_2___default.a({
+    theme: {
+      themes: {
+        light: {
+          primary: '#1d2671',
+          secondary: '#E1341E'
+        }
+      }
+    }
+  }),
   router: router
 });
 
